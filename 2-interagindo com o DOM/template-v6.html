@@ -1,0 +1,31 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{ titulo }}</p> <!-- v-once: vai ler somente uma vez e colocar o valor desejado.
+                                    Depois ele não vai ser observado caso algo seja atualizado-->
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a> <!-- v-bind: interliga os atributos -->
+
+    <hr>
+    <p v-html="linkHtml"></p>
+
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            link: 'http://google.com.br',
+            linkHtml: '<a href="http://google.com">Google</a>'
+
+        },
+        methods: {
+            saudacao: function () {
+                this.titulo = 'Bom dia!!!!'
+                return this.titulo
+            }
+        }
+    })
+</script>
