@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="(cor, i) in cores"
+         :key="cor">{{ cor }} - {{ i }}</li> <!-- o KEY serve para o Vue como uma dica, para que vc
+                                                  diga exatamente onde que esta o determinado elemento   -->
+    </ul>
+    <button @click="cores.push('branca')">Adicionar</button>
+    <hr>
+    <template v-for="(cor, i) in cores">
+        <h1>{{ cor }}</h1>
+        <p>{{ i }}</p>
+    </template>
+    <hr>
+    <ul>
+        <li v-for="pessoa in pessoas"> <!-- so para pegar os nomes : {{ pessoa.nome }} -->
+            <div v-for="(valor, chave, index) in pessoa">
+                {{ index + 1 }}) {{ chave }} = {{ valor }}
+            </div>
+        </li>
+    </ul>
+    <hr>
+    <span v-for="n in 10">{{ n }}</span>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+            pessoas: [
+                {nome: 'Gustavo', idade: 24, peso: 110},
+                {nome: 'Nara', idade: 26, peso: 75},
+            ]
+        }
+    })
+</script>
